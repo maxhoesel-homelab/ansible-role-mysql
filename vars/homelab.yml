@@ -1,0 +1,7 @@
+mysql_homelab_users:
+  - name: zbx_monitor
+    host: "127.0.0.1"
+    # cleartext password - not ideal,
+    # but given that the monitor user only listens locally,  it's not a huge deal
+    password: VM33ZenoVdVX55zud6eJYRSiJwE8fsie
+    priv: "*.*:REPLICATION CLIENT,PROCESS,SHOW DATABASES,SHOW VIEW"
