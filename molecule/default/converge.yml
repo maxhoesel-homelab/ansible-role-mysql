@@ -3,6 +3,16 @@
   hosts: all
   become: true
 
+  pre_tasks:
+  - name: Set testing user info
+    ansible.builtin.set_fact:
+      mysql_homelab_users:
+        - name: "monitor_user"
+          host: "127.0.0.1"
+          password: "monitor_password"
+          priv: "*.*:REPLICATION CLIENT,PROCESS,SHOW DATABASES,SHOW VIEW"
+
+
   roles:
     - role: geerlingguy.mysql
 
